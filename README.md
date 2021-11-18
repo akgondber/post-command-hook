@@ -1,4 +1,4 @@
-# post-command-hook
+# post-command-hook [![NPM version][npm-image]][npm-url]
 > Run a command and then all registered hook(s).
 
 ## Installation
@@ -15,6 +15,8 @@ $ yarn add post-command-hook
 
 ## Usage
 
+Let's suppose we want to add [esdoc](https://github.com/esdoc/esdoc) to our project, create config file and generate a documentation. To achieve that we could create a file `esdoc-setup.js` and use the following snippet:
+
 ```js
 const PostCommandHook = require('post-command-hook');
 
@@ -29,14 +31,24 @@ postCommandHook.use(() => {
       console.log(err);
     }
   });
-}).use({ command: './node_modules/.bin/esdoc' }).run();
+}).use({ command: './node_modules/.bin/esdoc' });
+
+(async () => {
+  await postCommandHook.run();
+})();
+```
+
+and run it:
+
+```shell
+$ node esdoc-setup.js
 ```
 
 ## API
 
-### new PostCommandHook(baseCommand)
+### new PostCommandHook(baseCommand, execaOptions)
 
-Constructs an instance of PostCommandHook class providing `baseCommand` as an argument. The `baseCommand` is an object with the following keys:
+Constructs an instance of PostCommandHook class providing `baseCommand` and `execaOptions`. The `baseCommand` is an object with the following keys:
 
 #### baseCommand
 
@@ -65,6 +77,10 @@ Type: `string`
 
 A message to be displayed after execution of the specified command.
 
+#### execaOptions
+
+Options to be used while executing a command. Default value is `{ stdio: "inherit" }`. See [execa](https://github.com/sindresorhus/execa) documentation for details.
+
 ### .use(plugin)
 
 Registers specified plugin that will be issued after execution of the base command. Could be chained.
@@ -84,8 +100,12 @@ Type: `object`
 
 Type: `boolean`
 
-Instructs to not throw an error if any happens and silently skip it.
+Instructs to not throw an error if any happens and silently skip it. Note that this option will not apply for base command execution hence if base command fails an error will be thrown.
 
 ## License
 
 MIT © [Rushan Alyautdinov](https://github.com/akgondber)
+
+
+[npm-image]: https://img.shields.io/npm/v/post-command-hook.svg?style=flat
+[npm-url]: https://npmjs.org/package/post-command-hook
