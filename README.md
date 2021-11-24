@@ -88,6 +88,16 @@ Registers specified plugin that will be issued after execution of the base comma
 #### plugin
 Type: `object`, `function` or an instance of class responding to `.run`.
 
+### .setRunOnce(value)
+
+Instructs to keep already performed commands in the registry and not to run them again. It allows you to add plugins and run them without executing previously issued commands.
+
+##### value
+
+Type: `boolean`
+
+Whether to issue a commands which are previously have been executed.
+
 ### .run(options)
 
 Executes the base command and then executes all registered plugins.

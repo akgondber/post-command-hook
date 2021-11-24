@@ -1,6 +1,6 @@
 {
   "name": "post-command-hook",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Run a command and then all registered hook(s)",
   "homepage": "https://github.com/akgondber/post-command-hook",
   "author": {
@@ -20,17 +20,18 @@
     "workflow",
     "cli",
     "shell",
-    "terminal"
+    "terminal",
+    "tool"
   ],
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.6.0",
-    "eslint-config-xo": "^0.27.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "husky": "^3.0.9",
-    "jest": "^26.1.0",
-    "lint-staged": "^9.4.3",
-    "prettier": "^1.19.1"
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-xo": "^0.39.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1"
   },
   "engines": {
     "npm": ">= 4.0.0"
@@ -77,10 +78,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "conf": "^10.1.0",
     "consola": "^2.15.3",
-    "execa": "^5.1.1",
+    "execa": "5.1",
     "is-plain-object": "^5.0.0",
     "lodash.isnil": "^4.0.0",
-    "lodash.isstring": "^4.0.1"
+    "lodash.isstring": "^4.0.1",
+    "object-hash": "^2.2.0"
   }
 }
