@@ -1,6 +1,6 @@
 {
   "name": "post-command-hook",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Run a command and then all registered hook(s)",
   "homepage": "https://github.com/akgondber/post-command-hook",
   "author": {
